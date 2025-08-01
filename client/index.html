@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intern Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Login/Signup Container -->
+    <div id="auth-container" class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h1><i class="fas fa-users"></i> Intern Dashboard</h1>
+                <p>Manage your internship journey and track your impact</p>
+            </div>
+
+            <!-- Login Form -->
+            <div id="login-form" class="auth-form active">
+                <h2>Welcome Back</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" required placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" required placeholder="Enter your password">
+                    </div>
+                    <button type="submit" class="auth-btn">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                </form>
+                <p class="auth-switch">
+                    Don't have an account? 
+                    <a href="#" onclick="switchToSignup()">Sign up here</a>
+                </p>
+            </div>
+
+            <!-- Signup Form -->
+            <div id="signup-form" class="auth-form">
+                <h2>Join Our Team</h2>
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <input type="text" id="signupName" required placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email</label>
+                        <input type="email" id="signupEmail" required placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" required placeholder="Create a password">
+                    </div>
+                    <button type="submit" class="auth-btn">
+                        <i class="fas fa-user-plus"></i> Sign Up
+                    </button>
+                </form>
+                <p class="auth-switch">
+                    Already have an account? 
+                    <a href="#" onclick="switchToLogin()">Login here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Container -->
+    <div id="dashboard-container" class="dashboard-container hidden">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-users"></i> Intern Dashboard
+            </div>
+            <div class="nav-menu">
+                <a href="#" onclick="showDashboard()" class="nav-link active" id="dashboard-nav">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+                <a href="#" onclick="showLeaderboard()" class="nav-link" id="leaderboard-nav">
+                    <i class="fas fa-trophy"></i> Leaderboard
+                </a>
+                <a href="#" onclick="logout()" class="nav-link logout">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </nav>
+
+        <!-- Dashboard Content -->
+        <div id="dashboard-content" class="content active">
+            <div class="welcome-section">
+                <h1>Welcome back, <span id="user-name">Intern</span>! 🎉</h1>
+                <p>Here's your current performance overview</p>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="referral-code">Loading...</h3>
+                        <p>Your Referral Code</p>
+                    </div>
+                </div>
+                <div class="stat-card highlight">
+                    <div class="stat-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="total-donations">$0</h3>
+                        <p>Total Donations Raised</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="join-date">Loading...</h3>
+                        <p>Member Since</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rewards Section -->
+            <div class="rewards-section">
+                <h2><i class="fas fa-award"></i> Your Rewards & Achievements</h2>
+                <div id="user-rewards" class="rewards-grid">
+                    <!-- Rewards will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Available Rewards -->
+            <div class="available-rewards-section">
+                <h2><i class="fas fa-gift"></i> Available Rewards</h2>
+                <p>Keep fundraising to unlock these amazing rewards!</p>
+                <div id="available-rewards" class="rewards-grid">
+                    <!-- Available rewards will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Leaderboard Content -->
+        <div id="leaderboard-content" class="content">
+            <div class="welcome-section">
+                <h1><i class="fas fa-trophy"></i> Fundraising Leaderboard</h1>
+                <p>See how you stack up against your fellow interns</p>
+            </div>
+
+            <div class="leaderboard-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Referral Code</th>
+                            <th>Total Raised</th>
+                            <th>Rewards</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboard-body">
+                        <!-- Leaderboard data will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Loading...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

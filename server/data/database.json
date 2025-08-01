@@ -1,0 +1,87 @@
+{
+  "interns": [
+    {
+      "id": 1,
+      "name": "Alex Johnson",
+      "email": "alex@example.com",
+      "referralCode": "alex2025",
+      "totalDonations": 2500,
+      "joinDate": "2025-01-01",
+      "rewards": ["Bronze Badge", "First Donation", "Team Player"]
+    },
+    {
+      "id": 2,
+      "name": "Sarah Chen",
+      "email": "sarah@example.com", 
+      "referralCode": "sarah2025",
+      "totalDonations": 3200,
+      "joinDate": "2025-01-02",
+      "rewards": ["Silver Badge", "Top Fundraiser", "Community Champion"]
+    },
+    {
+      "id": 3,
+      "name": "Mike Rodriguez",
+      "email": "mike@example.com",
+      "referralCode": "mike2025", 
+      "totalDonations": 1800,
+      "joinDate": "2025-01-03",
+      "rewards": ["Bronze Badge", "Consistent Contributor"]
+    },
+    {
+      "id": 4,
+      "name": "Emma Williams",
+      "email": "emma@example.com",
+      "referralCode": "emma2025",
+      "totalDonations": 4100,
+      "joinDate": "2025-01-04",
+      "rewards": ["Gold Badge", "Super Fundraiser", "Leadership Award", "Monthly Top Performer"]
+    },
+    {
+      "id": 5,
+      "name": "David Kim",
+      "email": "david@example.com",
+      "referralCode": "david2025",
+      "totalDonations": 2750,
+      "joinDate": "2025-01-05",
+      "rewards": ["Silver Badge", "Networking Pro", "Team Collaborator"]
+    }
+  ],
+  "availableRewards": [
+    {
+      "name": "Bronze Badge",
+      "description": "Awarded for reaching $1000 in donations",
+      "threshold": 1000,
+      "icon": "🥉"
+    },
+    {
+      "name": "Silver Badge", 
+      "description": "Awarded for reaching $2500 in donations",
+      "threshold": 2500,
+      "icon": "🥈"
+    },
+    {
+      "name": "Gold Badge",
+      "description": "Awarded for reaching $4000 in donations", 
+      "threshold": 4000,
+      "icon": "🥇"
+    },
+    {
+      "name": "First Donation",
+      "description": "Congratulations on your first donation!",
+      "threshold": 1,
+      "icon": "🎉"
+    },
+    {
+      "name": "Team Player",
+      "description": "Great collaboration with fellow interns",
+      "threshold": 0,
+      "icon": "🤝"
+    },
+    {
+      "name": "Top Fundraiser",
+      "description": "Among the top 3 fundraisers this month",
+      "threshold": 3000,
+      "icon": "⭐"
+    }
+  ]
+}
