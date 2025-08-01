@@ -1,0 +1,26 @@
+{
+  "name": "intern-dashboard",
+  "version": "1.0.0",
+  "description": "Simple intern dashboard with donation tracking and referrals",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
+    "client": "cd client && npx http-server -p 3001",
+    "server": "cd server && npm start"
+  },
+  "keywords": ["intern", "dashboard", "donations", "referrals"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "mongoose": "^8.0.3",
+    "dotenv": "^16.3.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

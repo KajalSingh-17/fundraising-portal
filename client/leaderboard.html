@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - Intern Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Intern Dashboard</span>
+            </div>
+            <div class="nav-menu">
+                <a href="/dashboard" class="nav-link">
+                    <i class="fas fa-chart-line"></i>
+                    Dashboard
+                </a>
+                <a href="/leaderboard" class="nav-link active">
+                    <i class="fas fa-trophy"></i>
+                    Leaderboard
+                </a>
+                <button onclick="logout()" class="btn btn-secondary">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Header Section -->
+        <div class="leaderboard-header">
+            <h1><i class="fas fa-trophy"></i> Fundraising Leaderboard</h1>
+            <p>See how you stack up against your fellow interns!</p>
+        </div>
+
+        <!-- Top 3 Podium -->
+        <div class="podium-container">
+            <div class="podium-item second-place" id="secondPlace">
+                <div class="podium-rank">2</div>
+                <div class="podium-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h3>-</h3>
+                <p>$0.00</p>
+                <div class="podium-base silver">
+                    <i class="fas fa-medal"></i>
+                </div>
+            </div>
+            
+            <div class="podium-item first-place" id="firstPlace">
+                <div class="podium-rank">1</div>
+                <div class="podium-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h3>-</h3>
+                <p>$0.00</p>
+                <div class="podium-base gold">
+                    <i class="fas fa-crown"></i>
+                </div>
+            </div>
+            
+            <div class="podium-item third-place" id="thirdPlace">
+                <div class="podium-rank">3</div>
+                <div class="podium-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h3>-</h3>
+                <p>$0.00</p>
+                <div class="podium-base bronze">
+                    <i class="fas fa-medal"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Full Leaderboard Table -->
+        <div class="section-card">
+            <h2><i class="fas fa-list-ol"></i> Complete Rankings</h2>
+            <div class="leaderboard-table">
+                <div class="table-header">
+                    <div class="rank-col">Rank</div>
+                    <div class="name-col">Intern Name</div>
+                    <div class="code-col">Referral Code</div>
+                    <div class="amount-col">Total Raised</div>
+                    <div class="badge-col">Badge</div>
+                </div>
+                <div id="leaderboardBody" class="table-body">
+                    <!-- Leaderboard entries will be populated here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Summary -->
+        <div class="stats-summary">
+            <div class="summary-card">
+                <div class="summary-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="summary-content">
+                    <h3 id="totalInterns">0</h3>
+                    <p>Total Interns</p>
+                </div>
+            </div>
+            
+            <div class="summary-card">
+                <div class="summary-icon">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <div class="summary-content">
+                    <h3 id="totalRaised">$0.00</h3>
+                    <p>Total Raised</p>
+                </div>
+            </div>
+            
+            <div class="summary-card">
+                <div class="summary-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <div class="summary-content">
+                    <h3 id="averageRaised">$0.00</h3>
+                    <p>Average per Intern</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success/Error Messages -->
+    <div id="message" class="message"></div>
+    
+    <script src="script.js"></script>
+    <script>
+        // Load leaderboard data when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadLeaderboard();
+        });
+    </script>
+</body>
+</html>

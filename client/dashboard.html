@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intern Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Intern Dashboard</span>
+            </div>
+            <div class="nav-menu">
+                <a href="/dashboard" class="nav-link active">
+                    <i class="fas fa-chart-line"></i>
+                    Dashboard
+                </a>
+                <a href="/leaderboard" class="nav-link">
+                    <i class="fas fa-trophy"></i>
+                    Leaderboard
+                </a>
+                <button onclick="logout()" class="btn btn-secondary">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Welcome Section -->
+        <div class="welcome-section">
+            <div class="welcome-content">
+                <h1 id="welcomeMessage">Welcome back!</h1>
+                <p>Track your fundraising progress and unlock amazing rewards</p>
+            </div>
+            <div class="profile-avatar">
+                <i class="fas fa-user-circle"></i>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon donation">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="totalDonations">$0.00</h3>
+                    <p>Total Donations Raised</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon referral">
+                    <i class="fas fa-share-alt"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="referralCode">Loading...</h3>
+                    <p>Your Referral Code</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon rewards">
+                    <i class="fas fa-medal"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="unlockedRewards">0</h3>
+                    <p>Rewards Unlocked</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon rank">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="currentRank">#-</h3>
+                    <p>Current Rank</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Section -->
+        <div class="section-card">
+            <h2><i class="fas fa-chart-line"></i> Fundraising Progress</h2>
+            <div class="progress-container">
+                <div class="progress-item">
+                    <div class="progress-label">
+                        <span>Bronze Badge ($1,000)</span>
+                        <span id="bronzeProgress">$0 / $1,000</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="bronzeBar"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-label">
+                        <span>Silver Badge ($2,000)</span>
+                        <span id="silverProgress">$0 / $2,000</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="silverBar"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-label">
+                        <span>Gold Badge ($5,000)</span>
+                        <span id="goldProgress">$0 / $5,000</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="goldBar"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-label">
+                        <span>Platinum Badge ($10,000)</span>
+                        <span id="platinumProgress">$0 / $10,000</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="platinumBar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rewards Section -->
+        <div class="section-card">
+            <h2><i class="fas fa-gift"></i> Rewards & Achievements</h2>
+            <div class="rewards-grid" id="rewardsGrid">
+                <!-- Rewards will be populated dynamically -->
+            </div>
+        </div>
+
+        <!-- Referral Section -->
+        <div class="section-card">
+            <h2><i class="fas fa-users"></i> Share Your Referral Code</h2>
+            <div class="referral-section">
+                <p>Share your unique referral code with friends and family to boost your fundraising!</p>
+                <div class="referral-input-group">
+                    <input type="text" id="referralCodeInput" readonly>
+                    <button onclick="copyReferralCode()" class="btn btn-primary">
+                        <i class="fas fa-copy"></i>
+                        Copy
+                    </button>
+                </div>
+                <div class="social-share">
+                    <p>Share on:</p>
+                    <button class="social-btn facebook" onclick="shareOnFacebook()">
+                        <i class="fab fa-facebook-f"></i>
+                    </button>
+                    <button class="social-btn twitter" onclick="shareOnTwitter()">
+                        <i class="fab fa-twitter"></i>
+                    </button>
+                    <button class="social-btn linkedin" onclick="shareOnLinkedIn()">
+                        <i class="fab fa-linkedin-in"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success/Error Messages -->
+    <div id="message" class="message"></div>
+    
+    <script src="script.js"></script>
+    <script>
+        // Load dashboard data when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadDashboard();
+        });
+    </script>
+</body>
+</html>
